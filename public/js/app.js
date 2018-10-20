@@ -50715,7 +50715,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -50726,6 +50726,8 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -50793,6 +50795,18 @@ var render = function() {
         typeof _vm.social["twitter"][0] !== "undefined"
           ? _c("a", { attrs: { href: _vm.social.twitter[0].url } }, [
               _c("i", { staticClass: "icon ion-social-twitter" })
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        typeof _vm.social["github"][0] !== "undefined"
+          ? _c("a", { attrs: { href: _vm.social.github[0].url } }, [
+              _c("i", { staticClass: "icon ion-social-github" })
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        typeof _vm.social["instagram"][0] !== "undefined"
+          ? _c("a", { attrs: { href: _vm.social.instagram[0].url } }, [
+              _c("i", { staticClass: "icon ion-social-instagram" })
             ])
           : _vm._e()
       ]),

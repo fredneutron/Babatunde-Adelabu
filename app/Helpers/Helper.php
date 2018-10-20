@@ -20,6 +20,7 @@ class Helper
             'linked-in' => Social::where(['user_id' => 1, 'name' => 'linkedin'])->get(),
             'twitter' => Social::where(['user_id' => 1, 'name' => 'twitter'])->get(),
             'instagram' => Social::where(['user_id' => 1, 'name' => 'instagram'])->get(),
+            'github' => Social::where(['user_id' => 1, 'name' => 'github'])->get(),
         ];
     }
 }

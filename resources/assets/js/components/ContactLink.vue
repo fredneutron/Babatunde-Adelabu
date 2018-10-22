@@ -4,7 +4,7 @@
             <h2>Contact Info</h2>
             <div class="row">
                 <div class="col-1"><i class="icon ion-android-calendar icon"></i></div>
-                <div class="col-9"><span>{{ contact[0].date_of_birth }}</span></div>
+                <div class="col-9"><span>{{ now(contact[0].date_of_birth) }}</span></div>
             </div>
             <div class="row">
                 <div class="col-1"><i class="icon ion-person icon"></i></div>
@@ -12,7 +12,7 @@
             </div>
             <div class="row">
                 <div class="col-1"><i class="icon ion-ios-telephone icon"></i></div>
-                <div class="col-9"><span>{{ contact[0].phone }}</span></div>
+                <div class="col-9"><span>+{{ contact[0].phone_number }}</span></div>
             </div>
             <div class="row">
                 <div class="col-1"><i class="icon ion-at icon"></i></div>
@@ -33,6 +33,15 @@
             contact: {
                 type: Array,
                 required: true
+            }
+        },
+        data: () => {
+            return {
+                now: (n) => {
+                    let x = new Date(n);
+                    x.setDate(x.getDate());
+                    return x.getDay()+'/'+ x.getMonth()+1 +'/'+ x.getFullYear();
+                }
             }
         }
     }

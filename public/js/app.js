@@ -49398,7 +49398,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -49445,6 +49445,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             type: Array,
             required: true
         }
+    },
+    data: function data() {
+        return {
+            now: function now(n) {
+                var x = new Date(n);
+                x.setDate(x.getDate());
+                return x.getDay() + '/' + x.getMonth() + 1 + '/' + x.getFullYear();
+            }
+        };
     }
 });
 
@@ -49470,7 +49479,7 @@ var render = function() {
           _vm._m(0),
           _vm._v(" "),
           _c("div", { staticClass: "col-9" }, [
-            _c("span", [_vm._v(_vm._s(_vm.contact[0].date_of_birth))])
+            _c("span", [_vm._v(_vm._s(_vm.now(_vm.contact[0].date_of_birth)))])
           ])
         ]),
         _vm._v(" "),
@@ -49494,7 +49503,7 @@ var render = function() {
           _vm._m(2),
           _vm._v(" "),
           _c("div", { staticClass: "col-9" }, [
-            _c("span", [_vm._v(_vm._s(_vm.contact[0].phone))])
+            _c("span", [_vm._v("+" + _vm._s(_vm.contact[0].phone_number))])
           ])
         ]),
         _vm._v(" "),

@@ -39,7 +39,7 @@ class Bio extends Model
     public function setProfilePictureAttribute($value)
     {
         $attribute_name = 'profile_picture';
-        $disk = 'public';
+        $disk = 'cloudinary';
         $destination_path = '/images/profile_picture';
 
         // if the image was erased

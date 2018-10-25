@@ -41,7 +41,7 @@ class Projects extends Model
     public function setImageAttribute($value)
     {
         $attribute_name = 'image';
-        $disk = 'public';
+        $disk = 'cloudinary';
         $destination_path = '/images/projects';
 
         // if the image was erased

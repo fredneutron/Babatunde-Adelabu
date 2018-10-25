@@ -22,7 +22,7 @@ return [
     'developer_name' => 'Babatunde Adelabu',
 
     // Developer website. Link in footer.
-    'developer_link' => config('APP_URL'),
+    'developer_link' => config('app.url'),
 
     // Show powered by Laravel Backpack in the footer?
     'show_powered_by' => false,

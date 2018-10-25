@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
+use JD\Cloudder\Facades\Cloudder;
 
 class Bio extends Model
 {
@@ -42,13 +43,11 @@ class Bio extends Model
         $disk = 'cloudinary';
         $destination_path = '/images/profile_picture';
 
-        // if the image was erased
-        if ($value == null){
-            // delete the image from disk
-            Storage::disk($disk)->delete($this->{$attribute_name});
-
-            // set null in the database column
-            $this->attributes[$attribute_name] = null;
+        //
+        if($value == null){
+            // delete the image from cloud
+            Cloudder::destoryImage($this->attributes[$attribute_name]);
+            Cloudder::delete($this->attributes[$attribute_name]);
         }
 
         // if a base64 was sent, store it in the db
@@ -57,15 +56,45 @@ class Bio extends Model
             // Make the image
             $image = Image::make($value);
 
-            // Generate a filename
-            $filename = md5($value.time()).'.jpg';
+            // Generate a public_id
+            $public_id = md5($value.time());
 
-            // Store the image on the disk.
-            Storage::disk($disk)->put($destination_path.'/'.$filename, $image->stream());
+            // Generate a filename
+            $filename = $public_id.'.jpg';
+
+            // upload the image to Cloudinary
+            Cloudder::upload($destination_path.'/'.$filename, $public_id);
 
             // Save the path to the database
             $this->attributes[$attribute_name] = $destination_path.'/'.$filename;
         }
+
+
+
+//        // if the image was erased
+//        if ($value == null){
+//            // delete the image from disk
+//            Storage::disk($disk)->delete($this->{$attribute_name});
+//
+//            // set null in the database column
+//            $this->attributes[$attribute_name] = null;
+//        }
+//
+//        // if a base64 was sent, store it in the db
+//        if (starts_with($value, 'data:image'))
+//        {
+//            // Make the image
+//            $image = Image::make($value);
+//
+//            // Generate a filename
+//            $filename = md5($value.time()).'.jpg';
+//
+//            // Store the image on the disk.
+//            Storage::disk($disk)->put($destination_path.'/'.$filename, $image->stream());
+//
+//            // Save the path to the database
+//            $this->attributes[$attribute_name] = $destination_path.'/'.$filename;
+//        }
     }
 
     /*

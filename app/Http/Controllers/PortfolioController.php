@@ -45,7 +45,7 @@ class PortfolioController extends Controller
         ];
 
         // selecting image path for images stored in storage
-        $this->image_path = 'storage';
+        $this->image_path = '';
     }
 
 
@@ -88,7 +88,7 @@ class PortfolioController extends Controller
                 'backend' => $backend[array_rand([$backend], 1)],
                 'security' => $security[array_rand([$security], 1)]
             ],
-            'image_path' => ''
+            'image_path' => $this->image_path
         ]);
 
     }

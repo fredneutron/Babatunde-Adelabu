@@ -24,7 +24,7 @@ return [
         'address'     => null,
 
         'logo'        => [
-            'path'   => '%PUBLIC%/vendor/beautymail/assets/favicon.png',
+            'path'   => asset('images/favicon.png'),
             'width'  => '40%',
             'height' => '40%',
         ],

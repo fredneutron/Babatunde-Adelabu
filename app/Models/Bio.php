@@ -41,32 +41,29 @@ class Bio extends Model
     {
         $attribute_name = 'profile_picture';
         $disk = 'cloudinary';
-        $destination_path = '/images/profile_picture';
+        $destination_path = '/images/profile_picture/';
 
-        //
+        // if the image was erased
         if($value == null){
             // delete the image from cloud
-            Cloudder::destoryImage($this->attributes[$attribute_name]);
-            Cloudder::delete($this->attributes[$attribute_name]);
+            Cloudder::destoryImage(Cloudder::getPublicId());
+            Cloudder::delete(Cloudder::getPublicId());
         }
 
         // if a base64 was sent, store it in the db
         if (starts_with($value, 'data:image'))
         {
-            // Make the image
-            $image = Image::make($value);
-
             // Generate a public_id
             $public_id = md5($value.time());
 
-            // Generate a filename
-            $filename = $public_id.'.jpg';
-
             // upload the image to Cloudinary
-            Cloudder::upload($destination_path.'/'.$filename, $public_id);
+            Cloudder::upload($value,null, ['folder' => $destination_path, 'public_id' => $public_id]);
+
+            // get image url from cloudinary
+            $image_url = Cloudder::secureShow(Cloudder::getPublicId());
 
             // Save the path to the database
-            $this->attributes[$attribute_name] = $destination_path.'/'.$filename;
+            $this->attributes[$attribute_name] = $image_url;
         }
 
 

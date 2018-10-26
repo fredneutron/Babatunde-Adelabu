@@ -26,7 +26,8 @@ return [
     |    ]
     */
     'disks' => [
-//         'images',
+//        'URL' => url('https://res.cloudinary.com/dthhh7czy'),
+//        'alias' => 'Cloudinary'
     ],
 
     /*

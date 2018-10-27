@@ -24,7 +24,7 @@ return [
         'address'     => null,
 
         'logo'        => [
-            'path'   => asset('images/favicon.png'),
+            'path'   => '%PUBLIC%/images/favicon.png',
             'width'  => '40%',
             'height' => '40%',
         ],

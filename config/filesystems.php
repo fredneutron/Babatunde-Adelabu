@@ -64,13 +64,6 @@ return [
             'url' => env('AWS_URL'),
         ],
 
-        'cloudinary' => [
-            'driver' => 'cloudinary',
-            'api_key' => env('762815839163847'),
-            'api_secret' => env('ws8znb4RE5iuwhlho8javkNYJx4'),
-            'cloud_name' => env('dthhh7czy'),
-        ],
-
     ],
 
 ];

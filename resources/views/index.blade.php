@@ -4,9 +4,7 @@
 
 @section('content')
     <main class="page lanidng-page">
-<?php
-       // var_dump($projects);
-?>
+            
         <!-- Biography -->
         <!-- pass registered user's biography to bio -->
         <Bio :bio='@json($bio)'

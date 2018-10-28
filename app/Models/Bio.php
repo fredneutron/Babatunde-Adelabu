@@ -67,7 +67,7 @@ class Bio extends Model
         }
 
 
-
+            // local storage image upload
 //        // if the image was erased
 //        if ($value == null){
 //            // delete the image from disk

@@ -34,8 +34,7 @@
 
         <!-- select all registered project in database and pass it to projects -->
         <project-ad :projects='@json($projects[array_rand($projects, 1)])'
-                    path="{{ $image_path }}"
-        >
+                    path="{{ $image_path }}">
         </project-ad>
     </main>
 

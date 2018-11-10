@@ -26,15 +26,8 @@ class PortfolioController extends Controller
 
     public function __construct()
     {
-        // getting all administration users
-        $users = BackpackUser::all();
-
         // filter user by name and returning id
-        $this->user = $users->reject(function ($user) {
-            return $user->name !== 'Babatunde Adelabu';
-        })->map(function ($user) {
-            return $user;
-        });
+        $this->user = BackpackUser::where('name', 'Babatunde Adelabu')->get();
 
         // setting up home advertise
         $this->advertise = [

@@ -9,7 +9,7 @@
                 <div class="col-md-12 col-lg-5">
                     <div class="portfolio-laptop-mockup">
                         <div class="screen">
-                            <div class="screen-content" v-bind:style="{backgroundImage : `url(${path+projects.image})`}"></div>
+                            <div class="screen-content"></div>
                         </div>
                         <div class="keyboard"></div>
                     </div>

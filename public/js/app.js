@@ -48806,9 +48806,9 @@ var render = function() {
     _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row align-items-center" }, [
         _c("div", { staticClass: "col-md-12 col-lg-5 offset-lg-1 text" }, [
-          _c("h3", [_vm._v(_vm._s(_vm.projects.name))]),
+          _c("h3", [_vm._v(_vm._s(_vm.projects["name"]))]),
           _vm._v(" "),
-          _c("p", [_vm._v(_vm._s(_vm.projects.description))])
+          _c("p", [_vm._v(_vm._s(_vm.projects["description"]))])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-md-12 col-lg-5" }, [
@@ -48818,7 +48818,7 @@ var render = function() {
                 staticClass: "screen-content",
                 style: {
                   backgroundImage:
-                    "url(" + (_vm.path + _vm.projects.image) + ")"
+                    "url(" + (_vm.path + _vm.projects["image"]) + ")"
                 }
               })
             ]),

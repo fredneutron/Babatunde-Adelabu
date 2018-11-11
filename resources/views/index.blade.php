@@ -37,7 +37,7 @@
                     path="{{ $image_path }}">
         </project-ad>
 
-        <project-show :project='@json($projects[array_rand($projects, 1)])'
+        <project-show project='@json($projects[array_rand($projects, 1)])'
                        path="{{ $image_path }}">
         </project-show>
     </main>

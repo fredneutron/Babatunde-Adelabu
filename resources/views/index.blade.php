@@ -3,6 +3,7 @@
 @section('title', 'Home')
 
 @section('content')
+    <?php $project = $projects[array_rand($projects, 1)]; ?>
     <main class="page lanidng-page">
             
         <!-- Biography -->
@@ -33,11 +34,11 @@
         </s-skills>
 
         <!-- select all registered project in database and pass it to projects -->
-        <project-ad :projects='@json($projects[array_rand($projects, 1)])'
+        <project-ad :projects='@json($project)'
                     path="{{ $image_path }}">
         </project-ad>
 
-        <project-show project='@json($projects[array_rand($projects, 1)])'
+        <project-show :project="{{ $project }}"
                        path="{{ $image_path }}">
         </project-show>
     </main>

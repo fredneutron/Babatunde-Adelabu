@@ -48810,27 +48810,26 @@ var render = function() {
           _c("p", [_vm._v(_vm._s(_vm.projects.description))])
         ]),
         _vm._v(" "),
-        _vm._m(0)
+        _c("div", { staticClass: "col-md-12 col-lg-5" }, [
+          _c("div", { staticClass: "portfolio-laptop-mockup" }, [
+            _c("div", { staticClass: "screen" }, [
+              _c("div", {
+                staticClass: "screen-content",
+                style: {
+                  backgroundImage:
+                    "url(" + (_vm.path + _vm.projects.image) + ")"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "keyboard" })
+          ])
+        ])
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12 col-lg-5" }, [
-      _c("div", { staticClass: "portfolio-laptop-mockup" }, [
-        _c("div", { staticClass: "screen" }, [
-          _c("div", { staticClass: "screen-content" })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "keyboard" })
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

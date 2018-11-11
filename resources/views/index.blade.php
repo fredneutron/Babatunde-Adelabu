@@ -38,9 +38,6 @@
                     path="{{ $image_path }}">
         </project-ad>
 
-        <project-show :project="{{ $project }}"
-                       path="{{ $image_path }}">
-        </project-show>
     </main>
 
 @stop

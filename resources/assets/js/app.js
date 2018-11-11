@@ -30,7 +30,6 @@ Vue.component('Skills', require('./components/Skills.vue'));
 Vue.component('Hobbies', require('./components/Hobbies.vue'));
 Vue.component('Print', require('./components/Print.vue'));
 Vue.component('foot', require('./components/foot.vue'));
-Vue.component('projectShow', require('./components/projectShow.vue'));
 
 
 const app = new Vue({

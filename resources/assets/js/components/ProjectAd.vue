@@ -3,13 +3,13 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-12 col-lg-5 offset-lg-1 text">
-                    <h3>{{ projects['name'] }}</h3>
-                    <p>{{ projects['description'] }}</p>
+                    <h3>{{ projects.name }}</h3>
+                    <p>{{ projects.description }}</p>
                 </div>
                 <div class="col-md-12 col-lg-5">
                     <div class="portfolio-laptop-mockup">
                         <div class="screen">
-                            <div class="screen-content" v-bind:style="{backgroundImage : `url(${path+projects['image']})`}"></div>
+                            <div class="screen-content" v-bind:style="{backgroundImage : `url(${path+projects.image})`}"></div>
                         </div>
                         <div class="keyboard"></div>
                     </div>

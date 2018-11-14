@@ -17,6 +17,7 @@ use App\Models\Skills;
 use App\Models\Work;
 use Backpack\Base\app\Models\BackpackUser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Snowfire\Beautymail\Beautymail;
 use App\Http\Controllers\Controller;
 
@@ -162,7 +163,7 @@ class PortfolioController extends Controller
         if (!empty($data['name']) && !empty($data['subject']) && !empty($data['email']) && !empty($data['message'])) {
 
             // send responder to client
-            $client = $this->mailer('contactmail', [
+            $client = $this->mailer('email.contactmail', [
                 'view' => [
                     'name' => $data['name'],
                     'subject' => $data['subject']
@@ -173,14 +174,15 @@ class PortfolioController extends Controller
                 ],
                 'client' => [
                     'name' => $data['name'],
-                    'email' => $data['email']
+                    'email' => $data['email'],
+                    'subject' => $data['subject']
                 ]
             ]);
 
             if ($client)
             {
                 // send client mail to Admin
-                $admin = $this->mailer('Admin', [
+                $admin = $this->mailer('email.Admin', [
                     'view' => [
                         'name' => $data['name'],
                         'email' => $data['email'],
@@ -189,7 +191,8 @@ class PortfolioController extends Controller
                     ],
                     'client' => [
                         'name' => config('app.name'),
-                        'email' => $this->user[0]->email
+                        'email' => $this->user[0]->email,
+                        'subject' => $data['subject']
                     ],
                     'sender' => [
                         'name' => $data['name'],
@@ -229,7 +232,7 @@ class PortfolioController extends Controller
         // declare mail class to use
         $mail = app()->make(Beautymail::class);
         // send mail
-        $mail->send($mail_view, $data['view'],
+        $mail->send($mail_view, ['view' => $data['view'] ],
             function ($message) use($sender, $client) {
                 $message->from($sender['email'], $sender['name'])
                     ->to($client['email'], $client['name'])

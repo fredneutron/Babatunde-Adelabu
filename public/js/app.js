@@ -48035,7 +48035,9 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.bio[0].bio_description))]),
+        _c("p", {
+          domProps: { innerHTML: _vm._s(_vm.bio[0].bio_description) }
+        }),
         _vm._v(" "),
         _vm.cv
           ? _c("div")
@@ -48147,7 +48149,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -48158,6 +48160,10 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
 //
 //
 //
@@ -48575,9 +48581,10 @@ var render = function() {
                 _vm._v(_vm._s(_vm.frontend.name))
               ]),
               _vm._v(" "),
-              _c("p", { staticClass: "card-text" }, [
-                _vm._v(_vm._s(_vm.frontend.description))
-              ])
+              _c("p", {
+                staticClass: "card-text",
+                domProps: { innerHTML: _vm._s(_vm.frontend.description) }
+              })
             ])
           ])
         ]),
@@ -48591,9 +48598,10 @@ var render = function() {
                 _vm._v(_vm._s(_vm.security.name))
               ]),
               _vm._v(" "),
-              _c("p", { staticClass: "card-text" }, [
-                _vm._v(_vm._s(_vm.security.description))
-              ])
+              _c("p", {
+                staticClass: "card-text",
+                domProps: { innerHTML: _vm._s(_vm.security.description) }
+              })
             ])
           ])
         ]),
@@ -48607,9 +48615,10 @@ var render = function() {
                 _vm._v(_vm._s(_vm.backend.name))
               ]),
               _vm._v(" "),
-              _c("p", { staticClass: "card-text" }, [
-                _vm._v(_vm._s(_vm.backend.description))
-              ])
+              _c("p", {
+                staticClass: "card-text",
+                domProps: { innerHTML: _vm._s(_vm.backend.description) }
+              })
             ])
           ])
         ])
@@ -48807,7 +48816,7 @@ var render = function() {
         _c("div", { staticClass: "col-md-12 col-lg-5 offset-lg-1 text" }, [
           _c("h3", [_vm._v(_vm._s(_vm.projects.name))]),
           _vm._v(" "),
-          _c("p", [_vm._v(_vm._s(_vm.projects.description))])
+          _c("p", { domProps: { innerHTML: _vm._s(_vm.projects.description) } })
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-md-12 col-lg-5" }, [
@@ -48925,7 +48934,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -49014,7 +49023,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             email: null,
             message: null,
             positive: null,
-            marginTop: '10px'
+            marginTop: '10px',
+            sub: function sub() {
+                return 'Submit Form';
+            }
         };
     },
     methods: {
@@ -49241,7 +49253,16 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
-        _vm._m(3)
+        _c("div", { staticClass: "form-group" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary btn-block btn-lg",
+              attrs: { type: "submit" }
+            },
+            [_c("span", { domProps: { innerHTML: _vm._s(_vm.sub()) } })]
+          )
+        ])
       ]
     )
   ])
@@ -49286,21 +49307,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", [_c("i", { staticClass: "icon ion-checkmark" })])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-primary btn-block btn-lg",
-          attrs: { type: "submit" }
-        },
-        [_vm._v("Submit Form")]
-      )
-    ])
   }
 ]
 render._withStripped = true
@@ -49717,9 +49723,10 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c("p", { staticClass: "text-muted card-text" }, [
-              _vm._v(_vm._s(project.description))
-            ])
+            _c("p", {
+              staticClass: "text-muted card-text",
+              domProps: { innerHTML: _vm._s(project.description) }
+            })
           ])
         ])
       ])
@@ -49914,9 +49921,10 @@ var render = function() {
                 ])
           ]),
           _vm._v(" "),
-          _c("p", { staticClass: "text-muted" }, [
-            _vm._v(_vm._s(work.description))
-          ])
+          _c("p", {
+            staticClass: "text-muted",
+            domProps: { innerHTML: _vm._s(work.description) }
+          })
         ])
       })
     ],
@@ -50120,9 +50128,10 @@ var render = function() {
                 ])
           ]),
           _vm._v(" "),
-          _c("p", { staticClass: "text-muted" }, [
-            _vm._v(_vm._s(edu.description))
-          ])
+          _c("p", {
+            staticClass: "text-muted",
+            domProps: { innerHTML: _vm._s(edu.description) }
+          })
         ])
       })
     ],

@@ -3,7 +3,10 @@
 @section('title', 'Home')
 
 @section('content')
-    <?php $project = $projects[array_rand($projects, 1)]; ?>
+    <?php
+        $n = random_int(0, count($projects)-1);
+        $project = $projects[$n];
+    ?>
     <main class="page lanidng-page">
             
         <!-- Biography -->

@@ -4,7 +4,7 @@
             <div class="avatar" v-bind:style="{backgroundImage : `url(${path+bio[0].profile_picture})`}"></div>
             <div class="about-me">
                 <h2 class="text-monospace text-primary">{{ bio[0].first_name }} {{ bio[0].other_name }} {{ bio[0].last_name }}</h2>
-                <p>{{ bio[0].bio_description }}</p>
+                <p v-html="bio[0].bio_description"></p>
                 <div v-if="cv"></div>
                 <a v-else class="btn btn-outline-primary" role="button"  v-bind:href="contactLink">{{ contactAd }}</a>
             </div>

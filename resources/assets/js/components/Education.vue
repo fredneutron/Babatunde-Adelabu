@@ -12,7 +12,7 @@
                 <div class="col-6" v-if="edu.end_on === null"><span class="period">{{ now(edu.start_on) }} - Present</span></div>
                 <div class="col-6" v-else ><span class="period">{{ now(edu.start_on) }} - {{ now(edu.end_on) }}</span></div>
             </div>
-            <p class="text-muted">{{ edu.description }}</p>
+            <p class="text-muted" v-html="edu.description"></p>
         </div>
     </div>
 </template>

@@ -7,7 +7,7 @@
                 </a>
                 <div class="card-body">
                     <h6><a v-bind:href="project.url">{{ project.name }}</a></h6>
-                    <p class="text-muted card-text">{{ project.description }}</p>
+                    <p class="text-muted card-text" v-html="project.description"></p>
                 </div>
             </div>
         </div>

@@ -60,7 +60,7 @@
                         class="form-control item">
                 </textarea>
             </div>
-            <div class="form-group"><button class="btn btn-primary btn-block btn-lg" type="submit">Submit Form</button></div>
+            <div class="form-group"><button class="btn btn-primary btn-block btn-lg" type="submit"><span v-html="sub()"></span></button></div>
         </form>
     </div>
 </template>
@@ -76,7 +76,10 @@
                 email: null,
                 message: null,
                 positive: null,
-                marginTop: '10px'
+                marginTop: '10px',
+		sub: function () {
+		return 'Submit Form';
+		}
             }
         },
         methods: {

@@ -57,7 +57,14 @@ class Bio extends Model
             $public_id = md5($value.time());
 
             // upload the image to Cloudinary
-            Cloudder::upload($value,null, ['folder' => $destination_path, 'public_id' => $public_id]);
+            Cloudder::upload($value,null, ['folder' => $destination_path, 'public_id' => $public_id, 'transformation' => [
+                [
+                    'width' => 'auto',
+                    'crop' => 'fit'
+                ]
+                ]
+                ]
+            );
 
             // get image url from cloudinary
             $image_url = Cloudder::secureShow(Cloudder::getPublicId());

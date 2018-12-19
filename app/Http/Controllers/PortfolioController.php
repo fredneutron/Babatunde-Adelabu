@@ -39,7 +39,7 @@ class PortfolioController extends Controller
         ];
 
         // selecting image path for images stored in storage
-        $this->image_path = '/c_fit,w_auto';
+        $this->image_path = '';
     }
 
 

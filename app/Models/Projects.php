@@ -63,7 +63,7 @@ class Projects extends Model
 
             // get image url from cloudinary
             //$image_url = Cloudder::secureShow(Cloudder::getPublicId());
-	    $image_url = Cloudder::show(Cloudder::getPublicId(), ['width'=> 'auto', 'crop'=> 'fit', 'format' => 'jpg']);
+	    $image_url = Cloudder::show(Cloudder::getPublicId(), ['width'=> 'auto', 'height' => 1200, 'crop'=> 'fit', 'format' => 'jpg']);
 
             // Save the path to the database
             $this->attributes[$attribute_name] = $image_url;

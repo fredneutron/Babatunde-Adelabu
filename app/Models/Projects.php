@@ -59,12 +59,11 @@ class Projects extends Model
             $public_id = md5($value.time());
 
             // upload the image to Cloudinary
-            Cloudder::upload($value,null, ['folder' => $destination_path, 'public_id' => $public_id]
-            );
+            Cloudder::upload($value,null, ['folder' => $destination_path, 'public_id' => $public_id]);
 
             // get image url from cloudinary
             //$image_url = Cloudder::secureShow(Cloudder::getPublicId());
-	    $image_url = Cloudder::show(Cloudder::getPublicId(), ['width'=> 1600, 'crop'=> 'fit', 'format' => 'jpg']);
+	    $image_url = Cloudder::show(Cloudder::getPublicId(), ['width'=> 'auto', 'crop'=> 'fit', 'format' => 'jpg']);
 
             // Save the path to the database
             $this->attributes[$attribute_name] = $image_url;

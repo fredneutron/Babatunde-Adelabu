@@ -61,7 +61,7 @@ class Projects extends Model
             // upload the image to Cloudinary
             Cloudder::upload($value,null, ['folder' => $destination_path, 'public_id' => $public_id, 'transformation' => [
                 [
-                    'width' => 'auto',
+                    'width' => '1600',
                     'crop' => 'fit'
                 ]
                 ]

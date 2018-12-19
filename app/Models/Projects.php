@@ -59,9 +59,8 @@ class Projects extends Model
             $public_id = md5($value.time());
 
             // upload the image to Cloudinary
-            Cloudder::upload($value,null, ['folder' => $destination_path, 'public_id' => $public_id, 'transformation' => array(
-                array('width' => 1600,'crop' => 'fit'),
-		array("width" => 1600, "crop" => "fit")
+            Cloudder::upload($value,null, ['folder' => $destination_path, 'public_id' => $public_id, "transformation" => array(
+                array("width"=> 1600, "crop"=>"fit", "format" => "jpg")
                 )
                 ]
             );

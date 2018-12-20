@@ -25,11 +25,11 @@ return [
 
         'logo'        => [
             'path'   => '%PUBLIC%/images/favicon.png',
-            'width'  => '40%',
-            'height' => '40%',
+            'width'  => '150px',
+            'height' => '150px',
         ],
 
-        'twitter'  => null,
+        'twitter'  => 'https://twitter.com/fredneutron',
         'facebook' => 'https://web.facebook.com/adelabu.fred',
         'flickr'   => null,
     ],

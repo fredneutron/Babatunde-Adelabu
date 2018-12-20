@@ -61,7 +61,7 @@ class Bio extends Model
 
             // get image url from cloudinary
             //$image_url = Cloudder::secureShow(Cloudder::getPublicId());
-	    $image_url = Cloudder::show(Cloudder::getPublicId(), ['width'=> 'auto', 'height' => 1200, 'crop'=> 'fit']);
+	        $image_url = Cloudder::show(Cloudder::getPublicId(), ['width'=> 'auto', 'height' => 1200, 'crop'=> 'fit']);
 
             // Save the path to the database
             $this->attributes[$attribute_name] = $image_url;

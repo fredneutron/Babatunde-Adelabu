@@ -4,7 +4,7 @@
             <h2>Contact Info</h2>
             <div class="row">
                 <div class="col-1"><i class="icon ion-android-calendar icon"></i></div>
-                <div class="col-9"><span>{{ now(contact[0].date_of_birth) }}</span></div>
+                <div class="col-9"><span>{{ contact[0].date_of_birth }}</span></div>
             </div>
             <div class="row">
                 <div class="col-1"><i class="icon ion-person icon"></i></div>

@@ -39,8 +39,7 @@
             return {
                 now: (n) => {
                     let x = new Date(n);
-                    x.setDate(x.getDate());
-                    return x.getDay()+'/'+ x.getMonth()+1 +'/'+ x.getFullYear();
+                    return x.getDate()+'/'+ (x.getMonth()+1) +'/'+ x.getFullYear();
                 }
             }
         }

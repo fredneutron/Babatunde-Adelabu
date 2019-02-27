@@ -101,7 +101,7 @@ class Bio extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function user()
+    public function BackpackUser()
     {
         return $this->belongsTo('Backpack\Base\app\Models\BackpackUser')->withDefault([
             'name' => 'Babatunde Adelabu',

@@ -69,7 +69,8 @@ class PortfolioController extends Controller
         $security = EpicSkills::where(['user_id' => $this->user[0]->id, 'type' => 'security'])->get();
 
         // select three random data from projects
-        $sort_project = $this->projectRandom($this->toArr($projects));
+        $sort_project = $this->projectRandom($projects);
+
 
         // return view with data needed for view
         return view('index', [
@@ -91,7 +92,7 @@ class PortfolioController extends Controller
      */
     public function contact()
     {
-        // selecting name, dob, email and phone_number from database
+        // selecting name,dob,email and phone_number from database
         $contact = Bio::where('user_id', $this->user[0]->id)->get();
 
 
@@ -241,28 +242,34 @@ class PortfolioController extends Controller
     }
 
     /**
-     * @param Array $obj
+     * @param Object $arr
      * @return array of three different projects
      */
-    private function projectRandom(Array $arr)
+    private function projectRandom($arr)
     {
-        if (count($arr) >= 3)
+        $x = [];
+        for ($i = 0; $i <= 2; $i+=1)
         {
-            return array_random($arr, 3);
-        } else if (count($arr) === 2)
-        {
-            return array_random($arr, 2);
-        } else if (count($arr) === 1)
-        {
-            return array_random($arr, 1);
+            if (count($x) <= 2)
+            {
+                $n = array_rand([$arr]);
+                for ($j = 0; $j <= count($x); $j++)
+                {
+                    if (!in_array($arr[$n], $x, true))
+                    {
+                        array_push( $x, $arr[$n]);
+                    }
+                }
+            }
         }
+        return $x;
     }
 
     /**
      * @param Object $arr
      * @return string
      */
-    private function hobbiesArranger(Object $arr)
+    private function hobbiesArranger($arr)
     {
         // get all hobbies and rearrange as a sentence
         $n = [];
@@ -271,15 +278,5 @@ class PortfolioController extends Controller
             array_push($n, $item['name']);
         }
         return implode(', ',$n);
-    }
-    private function toArr(Object $obj)
-    {
-        $arr = [];
-        // converting an Object to Array 
-        foreach ($obj as $item)
-        {
-            array_push($arr, $item);
-        }
-        return $arr;
     }
 }

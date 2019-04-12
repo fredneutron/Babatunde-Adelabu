@@ -38,7 +38,6 @@ class BioRequest extends FormRequest
             'bio_description' => 'required|string|min:5|max:500',
             'gender' => 'required|string',
             'profile_picture' => 'required|string',
-            'user_id' => 'required'
         ];
     }
 

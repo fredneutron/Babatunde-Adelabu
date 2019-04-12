@@ -9,12 +9,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bio;
-use App\Models\Education;
-use App\Models\EpicSkills;
-use App\Models\Hobbies;
-use App\Models\Projects;
-use App\Models\Skills;
-use App\Models\Work;
 use Backpack\Base\app\Models\BackpackUser;
 use App\Http\Requests\ContactMailRequest;
 use Snowfire\Beautymail\Beautymail;
@@ -26,7 +20,10 @@ class PortfolioController extends Controller
     public function __construct()
     {
         // filter user by name and returning id
-        $this->user = BackpackUser::where('name', 'Babatunde Adelabu')->first();
+        $this->Admin = BackpackUser::where('name', 'Babatunde Adelabu')->first();
+
+        // selecting all user's info from database
+        $this->user = Bio::where('id', $this->Admin->id)->first();
 
         // setting up home advertise
         $this->advert = [
@@ -51,32 +48,18 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        // selecting all user's info from database
-        $bio = Bio::where('user_id', $this->user->id)->first();
-
         // selecting all registered projects of user from database
-        $projects = Projects::where('user_id', $this->user->id)->get();
+        $projects = $this->user->projects;
 
-        // selecting all special skills with type frontend of user from database
-        $frontend = EpicSkills::where(['user_id' => $this->user->id, 'type' => 'frontend'])->get();
-
-        // selecting all special skills with type backend of user from database
-        $backend = EpicSkills::where(['user_id' => $this->user->id, 'type' => 'backend'])->get();
-
-        // selecting all special skills with type security of user from database
-        $security = EpicSkills::where(['user_id' => $this->user->id, 'type' => 'security'])->get();
+        // get all features
+        $features = $this->user->specialSkills;
 
         // return view with data needed for view
         return view('index', [
-            'user' => $bio,
+            'user' => $this->user,
             'projects' => $projects,
             'advert' => $this->advert,
-            'skills' => [
-                'frontend' => $frontend->random(),
-                'backend' => $backend->random(),
-                'security' => $security->random()
-            ],
-            'image_path' => $this->image_path
+            'skills' => $features,
         ]);
 
     }
@@ -87,7 +70,7 @@ class PortfolioController extends Controller
     public function contact()
     {
         // selecting name,dob,email and phone_number from database
-        $contact = Bio::where('user_id', $this->user->id)->first();
+        $contact = $this->user;
 
 
         // return view with data needed for view
@@ -100,13 +83,12 @@ class PortfolioController extends Controller
     public function projects()
     {
         // selecting all registered projects of user from database
-        $projects = Projects::where('user_id', $this->user->id)->get();
+        $projects = $this->user->projects;
 
 
         // return view with data needed for view
         return view('Projects', [
             'projects' => $projects,
-            'image_path' => $this->image_path
         ]);
     }
 
@@ -118,32 +100,27 @@ class PortfolioController extends Controller
         // selecting bio to fit in resume page
         $this->advertise['cv'] = true;
 
-        // selecting all user's info from database
-        $user = Bio::where('user_id', $this->user->id)->first();
-
         // selecting all work experiences from database
-        $works = Work::where('user_id', $this->user->id)->orderBy('start_on', 'DESC')->get();
+        $works = $this->user->works->sortByDesc('start_on')->values()->all();
 
         // selecting all education background from the database
-        $education = Education::where('user_id', $this->user->id)->orderBy('start_on', 'DESC')->get();
+        $educations = $this->user->educations->sortByDesc('start_on')->values()->all();
 
         // selecting all skill sets from database
-        $skills = Skills::where('user_id', $this->user->id)->get();
+        $skills = $this->user->skills;
 
-        // selecting all hobbies from database
-        $hobbies = Hobbies::where('user_id', $this->user->id)->get();
+        // selecting all hobbies from database and convert hobbies to string
+        $hobbies = $this->user->hobbies->implode('name', ', ');
 
-        // convert hobbies to string
-        $hobby = $hobbies->implode('name', ', ');
 
         // return view with data needed for view
         return view('resume', [
-            'user' => $user,
+            'user' => $this->user,
             'advert' => $this->advert,
             'works' => $works,
-            'educations' => $education,
+            'educations' => $educations,
             'skills' => $skills,
-            'hobbies' => $hobby,
+            'hobbies' => $hobbies,
         ]);
 
     }
@@ -155,7 +132,7 @@ class PortfolioController extends Controller
     public function mail(ContactMailRequest $request)
     {
         $data = $request->validated();
-
+        dd($data);
         return response()->json([
             'code'=> 'testing',
             'message' => $data['name'],

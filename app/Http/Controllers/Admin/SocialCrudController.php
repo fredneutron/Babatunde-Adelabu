@@ -33,6 +33,9 @@ class SocialCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
+        // allow data preview
+        $this->crud->allowAccess('show');
+
         // TODO: remove setFromDb() and manually define Fields and Columns
         $this->crud->setColumns(['name', 'url', 'user_id']);
 
@@ -45,7 +48,9 @@ class SocialCrudController extends CrudController
                 'github' => 'Github',
                 'instragam' => 'Instragam',
                 'linkedin' => 'Linkedin',
-                'twitter' => 'Twitter'
+                'twitter' => 'Twitter',
+                'spotify' => 'Spotify',
+                'GPodcast' => 'Google Podcast'
             ],
             'allows_null' => false
         ], 'update/create/both');
@@ -61,8 +66,8 @@ class SocialCrudController extends CrudController
             'label' => 'User',
             'type' => 'select',
             'entity' => 'user',
-            'attribute' => 'name',
-            'model' => 'Backpack\Base\app\Models\BackpackUser'
+            'attribute' => 'email',
+            'model' => 'App\Models\Bio'
         ], 'update/create/both');
 
         // add asterisk for fields that are required in TagRequest

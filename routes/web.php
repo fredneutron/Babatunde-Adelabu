@@ -11,14 +11,14 @@
 |
 */
 
-Route::get('/', 'PortfolioController@index');
+Route::get('/', 'PortfolioController@index')->name('Home');
 
-Route::get('Contact', 'PortfolioController@contact');
+Route::get('Contact', 'PortfolioController@contact')->name('Contact');
 
-Route::get('Projects', 'PortfolioController@projects');
+Route::get('Projects', 'PortfolioController@projects')->name('Projects');
 
-Route::get('Resume', 'PortfolioController@resume');
+Route::get('Resume', 'PortfolioController@resume')->name('Resume');
 
-Route::get('Blog', 'BlogController@index');
+Route::get('Blog', 'BlogController@index')->name('Blog');
 
-Route::get('/Blog/Post/{year}/{month}/{slug}', 'BlogController@post');
+Route::get('/Blog/Post/{year}/{month}/{slug}', 'BlogController@post')->name('Post');

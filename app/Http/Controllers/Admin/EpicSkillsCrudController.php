@@ -33,21 +33,16 @@ class EpicSkillsCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
+        // allow data preview
+        $this->crud->allowAccess('show');
+
         // TODO: remove setFromDb() and manually define Fields and Columns
-        $this->crud->setColumns(['name', 'type', 'description', 'user_id']);
+        $this->crud->setColumns(['name', 'icon', 'description', 'user_id']);
 
         $this->crud->addField( [
             'name' => 'name',
             'label' => 'Name',
             'type' => 'text'
-        ], 'update/create/both');
-
-        $this->crud->addField( [
-            'name' => 'type',
-            'label' => 'Type',
-            'type' => 'select_from_array',
-            'options' => ['frontend' => 'Frontend Development', 'security' => 'Security Enhancement', 'backend' => 'Backend Development'],
-            'allows_null' => false
         ], 'update/create/both');
 
         $this->crud->addField( [
@@ -57,12 +52,19 @@ class EpicSkillsCrudController extends CrudController
         ], 'update/create/both');
 
         $this->crud->addField( [
+            'name' => 'icon',
+            'label' => 'Icon',
+            'type' => 'icon_picker',
+            'iconset' => 'fontawesome'
+        ], 'update/create/both');
+
+        $this->crud->addField( [
             'name' => 'user_id',
             'label' => 'User',
             'type' => 'select',
             'entity' => 'user',
-            'attribute' => 'name',
-            'model' => 'Backpack\Base\app\Models\BackpackUser'
+            'attribute' => 'email',
+            'model' => 'App\Models\Bio'
         ], 'update/create/both');
 
         // add asterisk for fields that are required in TagRequest

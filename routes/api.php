@@ -18,4 +18,6 @@ use App\Http\Resources\MailResource;
 //    return $request->user();
 //});
 
-Route::post('/mail', 'PortfolioController@mail');
+//Route::post('/mail', 'PortfolioController@mail');
+
+Route::post('/mail', 'PortfolioController@mail')->name('Mail');

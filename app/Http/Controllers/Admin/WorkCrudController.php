@@ -33,6 +33,9 @@ class WorkCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
+        // allow data preview
+        $this->crud->allowAccess('show');
+
         // TODO: remove setFromDb() and manually define Fields and Columns
         $this->crud->setColumns(['position', 'company_name', 'description', 'start_on', 'end_on', 'user_id']);
 
@@ -83,8 +86,8 @@ class WorkCrudController extends CrudController
             'label' => 'User',
             'type' => 'select',
             'entity' => 'user',
-            'attribute' => 'name',
-            'model' => 'Backpack\Base\app\Models\BackpackUser'
+            'attribute' => 'email',
+            'model' => 'App\Models\Bio'
         ], 'update/create/both');
 
         // add asterisk for fields that are required in TagRequest

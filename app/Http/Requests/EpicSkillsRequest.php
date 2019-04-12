@@ -33,7 +33,7 @@ class EpicSkillsRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:50',
-            'type' => 'required|string',
+            'icon' => 'required|string',
             'description' => 'required|string|max:400',
             'user_id' => 'required'
         ];

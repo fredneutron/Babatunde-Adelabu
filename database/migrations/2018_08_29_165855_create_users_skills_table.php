@@ -18,7 +18,9 @@ class CreateUsersSkillsTable extends Migration
             $table->string('name');
             $table->integer('percentage');
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')
+                ->references('id')->on('bio')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -10,6 +10,7 @@
         "backpack/crud": "^3.4",
         "barryvdh/laravel-elfinder": "^0.4.0",
         "carlosocarvalho/storage-cloudinary-laravel": "^1.0",
+        "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^6.3",
         "jrm2k6/cloudder": "^0.6.0",

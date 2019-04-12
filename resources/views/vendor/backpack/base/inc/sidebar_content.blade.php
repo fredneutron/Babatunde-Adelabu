@@ -9,3 +9,5 @@
 <li><a href='{{ backpack_url('social') }}'><i class='fa fa-chain'></i> <span>Social</span></a></li>
 <li><a href='{{ backpack_url('work') }}'><i class='fa fa-briefcase'></i> <span>Work</span></a></li>
 <li><a href="{{ backpack_url('elfinder') }}"><i class="fa fa-files-o"></i> <span>{{ trans('backpack::crud.file_manager') }}</span></a></li>
+<li><a href='{{ backpack_url('post') }}'><i class='fa fa-tag'></i><span>Posts</span></a></li>
+<li><a href='{{ backpack_url('comment') }}'><i class='fa fa-tag'></i><span>Comments</span></a></li>

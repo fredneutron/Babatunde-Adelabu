@@ -26,6 +26,8 @@ class BioCrudController extends CrudController
         $this->crud->setModel('App\Models\Bio');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/bio');
         $this->crud->setEntityNameStrings('bio', 'bio');
+        // allow data preview
+        $this->crud->allowAccess('show');
 
         /*
         |--------------------------------------------------------------------------
@@ -34,7 +36,7 @@ class BioCrudController extends CrudController
         */
 
         // TODO: remove setFromDb() and manually define Fields and Columns
-        $this->crud->setColumns(['first_name', 'other_name', 'last_name', 'bio_description', 'gender', 'date_of_birth', 'residential_address', 'current_location', 'state_of_origin', 'nationality', 'profile_picture', 'email', 'phone_number', 'user_id']);
+        $this->crud->setColumns(['first_name', 'other_name', 'last_name', 'bio_description', 'gender', 'date_of_birth', 'residential_address', 'current_location', 'state_of_origin', 'nationality', 'profile_picture', 'email', 'phone_number']);
 
         $this->crud->addField( [
             'name' => 'first_name',
@@ -117,7 +119,7 @@ class BioCrudController extends CrudController
             'type' => 'image',
             'upload' => true,
             'crop' => true,
-            'prefix' => 'images/profile_pictures/'
+            'prefix' => 'storage'
         ], 'update/create/both');
 
         $this->crud->addField( [
@@ -130,15 +132,6 @@ class BioCrudController extends CrudController
             'name' => 'phone_number',
             'label' => 'Phone number',
             'type' => 'number'
-        ], 'update/create/both');
-
-        $this->crud->addField( [
-            'name' => 'user_id',
-            'label' => 'User',
-            'type' => 'select',
-            'entity' => 'user',
-            'attribute' => 'name',
-            'model' => 'Backpack\Base\app\Models\BackpackUser'
         ], 'update/create/both');
 
         // add asterisk for fields that are required in TagRequest

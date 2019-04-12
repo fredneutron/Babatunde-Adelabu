@@ -6,36 +6,23 @@
                 <h2>Special Skills</h2>
             </div>
             <div class="row">
-                <div class="col-md-4">
+                <div
+                    class="col-md-4"
+                    v-for="(feature, index) in features"
+                    :key="index"
+                    :index="index"
+                    :id="feature.id"
+                >
                     <div class="card special-skill-item border-0">
                         <div class="card-header bg-transparent border-0">
-                            <i class="icon ion-ios-star-outline"></i>
+                            <i
+                                class="fa"
+                                :class="feature.icon"
+                            ></i>
                         </div>
                         <div class="card-body">
-                            <h3 class="card-title">{{ frontend.name }}</h3>
-                            <p class="card-text" v-html="frontend.description"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card special-skill-item border-0">
-                        <div class="card-header bg-transparent border-0">
-                            <i class="icon ion-ios-lightbulb-outline"></i>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">{{ security.name }}</h3>
-                            <p class="card-text" v-html="security.description"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card special-skill-item border-0">
-                        <div class="card-header bg-transparent border-0">
-                            <i class="icon ion-ios-gear-outline"></i>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">{{ backend.name }}</h3>
-                            <p class="card-text" v-html="backend.description"></p>
+                            <h3 class="card-title">{{ feature.name }}</h3>
+                            <p class="card-text" v-html="feature.description"></p>
                         </div>
                     </div>
                 </div>
@@ -48,18 +35,10 @@
     export default {
         name: "SkillsAd",
         props: {
-            frontend: {
-                type: Object,
+            features: {
+                type: Array,
                 required: true
             },
-            backend: {
-                type: Object,
-                required: true
-            },
-            security: {
-                type: Object,
-                required: true
-            }
         }
     }
 </script>

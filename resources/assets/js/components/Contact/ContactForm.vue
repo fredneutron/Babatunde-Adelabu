@@ -14,7 +14,7 @@
             ></form-response>
             <div v-else ></div>
             <div class="form-group">
-                <label for="name">Your Name</label>
+                <label for="name">Name</label>
                 <input
                         id="name"
                         v-model="name"
@@ -40,6 +40,7 @@
                         v-model="email"
                         name="email"
                         class="form-control item"
+                        required
                         type="email">
             </div>
             <div class="form-group">
@@ -59,7 +60,7 @@
                         class="btn btn-primary btn-block btn-lg"
                         type="submit"
                 >
-                    <span><i class="fas fa-circle-notch fa-spin"></i> {{ ButtonText }} </span>
+                    <span v-html="ButtonText"></span>
                 </button>
             </div>
         </form>
@@ -86,7 +87,7 @@
 
                 // validation all request data together before api call
                 if (this.name && this.subject && this.email && this.message) {
-                    this.ButtonText = 'Loading';
+                    this.ButtonText = "<i class='fas fa-circle-notch fa-spin'></i>Loading";
                     // API call to post data to endpoint and send mail to portfolio's user
                     axios.post('/api/mail',{
                         name: this.name,
@@ -97,7 +98,9 @@
                         this.ButtonText = 'Sent';
                         this.positive = res.data;
                     })
-                        .catch(err => err);
+                        .catch((err) => {
+                            console.log(err.status +' : '+err.message);
+                        });
                 }
 
                 // define errors as array

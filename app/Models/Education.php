@@ -23,7 +23,7 @@ class Education extends Model
     */
 
     protected $table = 'education';
-    // protected $primaryKey = 'id';
+    protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = ['school_name', 'course', 'description', 'start_on', 'end_on', 'user_id'];
@@ -44,9 +44,7 @@ class Education extends Model
 
     public function user()
     {
-        return $this->belongsTo('Backpack\Base\app\Models\BackpackUser')->withDefault([
-            'name' => 'Babatunde Adelabu',
-        ]);
+        return $this->belongsTo('App\Models\Bio');
     }
 
     /*

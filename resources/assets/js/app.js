@@ -29,6 +29,8 @@ window.Vue = require('vue');
 Vue.component('NavBar', require('./components/Layout/NavBar.vue'));
 Vue.component('NavItem', require('./components/Layout/NavItem.vue'));
 Vue.component('foot', require('./components/Layout/foot.vue'));
+Vue.component('FootSocial', require('./components/Layout/FootSocial.vue'));
+Vue.component('FootLinks', require('./components/Layout/FootLinks.vue'));
 Vue.component('Bio', require('./components/Home/Bio.vue'));
 Vue.component('ProjectAd', require('./components/Home/ProjectAd.vue'));
 Vue.component('AdLink', require('./components/Home/AdLink.vue'));

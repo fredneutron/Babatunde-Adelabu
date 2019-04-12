@@ -33,6 +33,9 @@ class SkillsCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
+        // allow data preview
+        $this->crud->allowAccess('show');
+
         // TODO: remove setFromDb() and manually define Fields and Columns
         $this->crud->setColumns(['name', 'percentage', 'user_id']);
 
@@ -55,8 +58,8 @@ class SkillsCrudController extends CrudController
             'label' => 'User',
             'type' => 'select',
             'entity' => 'user',
-            'attribute' => 'name',
-            'model' => 'Backpack\Base\app\Models\BackpackUser'
+            'attribute' => 'email',
+            'model' => 'App\Models\Bio'
         ], 'update/create/both');
 
         // add asterisk for fields that are required in TagRequest

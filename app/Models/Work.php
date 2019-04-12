@@ -23,7 +23,7 @@ class Work extends Model
     */
 
     protected $table = 'works';
-    // protected $primaryKey = 'id';
+    protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = ['position', 'company_name', 'description', 'start_on', 'end_on', 'user_id'];
@@ -44,9 +44,7 @@ class Work extends Model
 
     public function user()
     {
-        return $this->belongsTo('Backpack\Base\app\Models\BackpackUser')->withDefault([
-            'name' => 'Babatunde Adelabu',
-        ]);
+        return $this->belongsTo('App\Models\Bio');
     }
 
     /*

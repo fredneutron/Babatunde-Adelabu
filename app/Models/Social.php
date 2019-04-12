@@ -22,7 +22,7 @@ class Social extends Model
     */
 
     protected $table = 'social';
-    // protected $primaryKey = 'id';
+    protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = ['name', 'url', 'user_id'];
@@ -43,9 +43,7 @@ class Social extends Model
 
     public function user()
     {
-        return $this->belongsTo('Backpack\Base\app\Models\BackpackUser')->withDefault([
-            'name' => 'Babatunde Adelabu',
-        ]);
+        return $this->belongsTo('App\Models\Bio');
     }
 
     /*

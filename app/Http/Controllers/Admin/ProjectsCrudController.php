@@ -33,8 +33,11 @@ class ProjectsCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
+        // allow data preview
+        $this->crud->allowAccess('show');
+
         // TODO: remove setFromDb() and manually define Fields and Columns
-        $this->crud->setColumns(['name', 'image', 'description', 'url', 'user_id']);
+        $this->crud->setColumns(['name', 'type', 'image', 'description', 'url', 'user_id']);
 
         $this->crud->addField( [
             'name' => 'name',
@@ -45,7 +48,9 @@ class ProjectsCrudController extends CrudController
         $this->crud->addField( [
             'name' => 'type',
             'label' => 'Type',
-            'type' => 'text'
+            'type' => 'select_from_array',
+            'options' => ['Web' => 'Web Application', 'API' => 'Application Protocol Interface', 'Mobile' => 'Mobile Application', 'Desktop' => 'Desktop Application'],
+            'allows_null' => false
         ], 'update/create/both');
 
         $this->crud->addField( [
@@ -54,7 +59,7 @@ class ProjectsCrudController extends CrudController
             'type' => 'image',
             'upload' => true,
             'crop' => true,
-            'prefix' => 'images/projects/'
+            'prefix' => 'storage',
         ], 'update/create.both');
 
         $this->crud->addField( [
@@ -74,8 +79,8 @@ class ProjectsCrudController extends CrudController
             'label' => 'User',
             'type' => 'select',
             'entity' => 'user',
-            'attribute' => 'name',
-            'model' => 'Backpack\Base\app\Models\BackpackUser'
+            'attribute' => 'email',
+            'model' => 'App\Models\Bio'
         ], 'update/create/both');
 
         // add asterisk for fields that are required in TagRequest

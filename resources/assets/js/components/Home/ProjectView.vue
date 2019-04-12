@@ -1,5 +1,5 @@
 <template>
-    <section class="portfolio-block website gradient">
+    <section v-if="project" class="portfolio-block website gradient">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-12 col-lg-5 offset-lg-1 text">

@@ -22,5 +22,8 @@
         background-color: #fafafa;
         box-shadow: #fbfbfb;
     }
+    a:hover {
+        text-decoration: none;
+    }
 
 </style>

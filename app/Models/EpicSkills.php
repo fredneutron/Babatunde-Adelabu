@@ -22,10 +22,10 @@ class EpicSkills extends Model
     */
 
     protected $table = 'epic_skills';
-    // protected $primaryKey = 'id';
+    protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ['name', 'type', 'description', 'user_id'];
+    protected $fillable = ['name', 'icon', 'description', 'user_id'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -43,9 +43,7 @@ class EpicSkills extends Model
 
     public function user()
     {
-        return $this->belongsTo('Backpack\Base\app\Models\BackpackUser')->withDefault([
-            'name' => 'Babatunde Adelabu',
-        ]);
+        return $this->belongsTo('App\Models\Bio');
     }
 
     /*

@@ -3,33 +3,36 @@
 <!--         biography-->
 <!--         pass registered user's biography to bio-->
         <Bio
-                :bio="bio"
-                :link="advert.link"
-                :statement="advert.statement"
-                :cv="advert.cv"
+            v-if="typeof bio === 'object'"
+            :bio="bio"
+            :link="advert.link"
+            :statement="advert.statement"
+            :cv="advert.cv"
         ></Bio>
 
 <!--        this is for advertising projects-->
 <!--        select all registered projects from database and pass it to advertise-content-->
         <project-ad
-                :projects="pickRandom(projects, 3)"
+            v-if="projects.length > 0"
+            :projects="pickRandom(projects, 3)"
         ></project-ad>
 
 <!--        this is for advertise contact-->
         <ad-link
-                :ad="advert"
+            v-if="typeof advert === 'object'"
+            :ad="advert"
         ></ad-link>
 
 <!--        this is for tech advert-->
         <skills-ad
-                :frontend="technologyType.frontend"
-                :backend="technologyType.backend"
-                :security="technologyType.security"
+            v-if="technologyType.length > 0"
+            :features="technologyType"
         ></skills-ad>
 
 <!--        select all registered project in database and pass it to projects-->
         <project-view
-                :project="pickRandom(projects, 1)[0]"
+            v-if="projects.length > 0"
+            :project="pickRandom(projects, 1)[0]"
         ></project-view>
 
     </main>
@@ -52,7 +55,7 @@
                 required: true,
             },
             technologyType: {
-                type: Object,
+                type: Array,
                 required: true,
             }
         },

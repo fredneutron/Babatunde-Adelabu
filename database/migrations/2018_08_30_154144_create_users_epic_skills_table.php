@@ -16,10 +16,12 @@ class CreateUsersEpicSkillsTable extends Migration
         Schema::create('epic_skills', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
-            $table->string('type');
             $table->string('description', 400);
+            $table->string('icon');
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')
+                ->references('id')->on('bio')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

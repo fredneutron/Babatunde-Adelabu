@@ -22,7 +22,7 @@ class Hobbies extends Model
     */
 
     protected $table = 'hobbies';
-    // protected $primaryKey = 'id';
+    protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = ['name', 'user_id'];
@@ -43,9 +43,7 @@ class Hobbies extends Model
 
     public function user()
     {
-        return $this->belongsTo('Backpack\Base\app\Models\BackpackUser')->withDefault([
-            'name' => 'Babatunde Adelabu',
-        ]);
+        return $this->belongsTo('App\Models\Bio');
     }
 
     /*

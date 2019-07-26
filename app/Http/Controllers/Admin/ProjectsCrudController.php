@@ -43,6 +43,12 @@ class ProjectsCrudController extends CrudController
         ], 'update/create/both');
 
         $this->crud->addField( [
+            'name' => 'type',
+            'label' => 'Type',
+            'type' => 'text'
+        ], 'update/create/both');
+
+        $this->crud->addField( [
             'name' => 'image',
             'label' => 'Image',
             'type' => 'image',

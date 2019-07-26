@@ -1,23 +1,17 @@
 <template>
     <div class="col-lg-7">
-        <form v-bind:style="{marginTop: marginTop }" @submit.prevent="submit" method="post">
-            <div v-if="errors.length" class="alert alert-danger alert-dismissible" role="alert" >
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <b>Please correct the following error(s):</b>
-                <ul>
-                    <li v-for="error in errors">{{ error }}</li>
-                </ul>
-            </div>
-            <div v-if="positive" class="alert alert-success alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <span><i class="icon ion-checkmark"></i> </span>
-                <b>{{ positive.data.code }}</b>
-                <p>{{ positive.data.message }}</p>
-            </div>
+        <form
+                @submit.prevent="submit"
+                method="post"
+        >
+            <form-error
+                    v-if="errors.length"
+                    :errors="errors"
+            ></form-error>
+            <form-response
+                    v-if="positive"
+                    :response="positive"
+            ></form-response>
             <div v-else ></div>
             <div class="form-group">
                 <label for="name">Your Name</label>
@@ -60,14 +54,21 @@
                         class="form-control item">
                 </textarea>
             </div>
-            <div class="form-group"><button class="btn btn-primary btn-block btn-lg" type="submit"><span v-html="sub()"></span></button></div>
+            <div class="form-group">
+                <button
+                        class="btn btn-primary btn-block btn-lg"
+                        type="submit"
+                >
+                    <span><i class="fas fa-circle-notch fa-spin"></i> {{ ButtonText }} </span>
+                </button>
+            </div>
         </form>
     </div>
 </template>
 
 <script>
     export default {
-        name: "Contact",
+        name: "ContactForm",
         data: function () {
             return {
                 errors : [],
@@ -77,9 +78,7 @@
                 message: null,
                 positive: null,
                 marginTop: '10px',
-		sub: function () {
-		return 'Submit Form';
-		}
+                ButtonText: 'Send',
             }
         },
         methods: {
@@ -87,13 +86,17 @@
 
                 // validation all request data together before api call
                 if (this.name && this.subject && this.email && this.message) {
+                    this.ButtonText = 'Loading';
                     // API call to post data to endpoint and send mail to portfolio's user
                     axios.post('/api/mail',{
                         name: this.name,
                         subject: this.subject,
                         email: this.email,
                         message: this.message
-                    }).then(res => this.positive = res)
+                    }).then((res) => {
+                        this.ButtonText = 'Sent';
+                        this.positive = res.data;
+                    })
                         .catch(err => err);
                 }
 
@@ -101,17 +104,17 @@
                 this.errors = [];
 
                 // name validation
-                if (!this.name) {
+                if (this.name === '' || typeof this.name !== 'string') {
                     this.errors.push('Name required.');
                 }
 
                 // subject validation
-                if (!this.subject) {
+                if (this.subject === '' || typeof this.subject !== 'string') {
                     this.errors.push('Subject required.');
                 }
 
                 // email validation
-                if (!this.email) {
+                if (this.email === '' || typeof this.email !== 'string') {
                     this.errors.push('Email required.');
                 }
 

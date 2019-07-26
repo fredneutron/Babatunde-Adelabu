@@ -288,7 +288,7 @@
 			'webfm'           : 'Web file manager',
 			'ver'             : 'Verzija',
 			'protocolver'     : 'protocol version',
-			'homepage'        : 'Project home',
+			'homepage'        : 'Projects home',
 			'docs'            : 'Dokumentacija',
 			'github'          : 'Fork us on Github',
 			'twitter'         : 'Follow us on twitter',

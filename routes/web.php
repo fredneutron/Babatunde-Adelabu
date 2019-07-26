@@ -13,8 +13,12 @@
 
 Route::get('/', 'PortfolioController@index');
 
-Route::get('Resume', 'PortfolioController@resume');
+Route::get('Contact', 'PortfolioController@contact');
 
 Route::get('Projects', 'PortfolioController@projects');
 
-Route::get('Contact', 'PortfolioController@contact');
+Route::get('Resume', 'PortfolioController@resume');
+
+Route::get('Blog', 'BlogController@index');
+
+Route::get('/Blog/Post/{year}/{month}/{slug}', 'BlogController@post');

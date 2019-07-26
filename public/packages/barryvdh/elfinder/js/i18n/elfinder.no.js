@@ -254,7 +254,7 @@
 			'webfm'           : 'Web-filbehandler',
 			'ver'             : 'Versjon',
 			'protocolver'     : 'protokol versjon',
-			'homepage'        : 'Project home',
+			'homepage'        : 'Projects home',
 			'docs'            : 'dokumentasjon',
 			'github'          : 'Fork us on Github',
 			'twitter'         : 'Follow us on twitter',

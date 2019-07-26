@@ -11,7 +11,7 @@ return [
     |
     */
 
-    // Project name. Shown in the breadcrumbs and a few other places.
+    // Projects name. Shown in the breadcrumbs and a few other places.
     'project_name' => config('app.name'),
 
     // Menu logos

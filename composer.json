@@ -13,10 +13,11 @@
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^6.3",
         "jrm2k6/cloudder": "^0.6.0",
-        "laravel/framework": "5.6.*",
+        "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
         "snowfire/beautymail": "dev-master",
-        "superbalist/laravel-google-cloud-storage": "^2.0"
+        "superbalist/laravel-google-cloud-storage": "^2.0",
+        "writingink/wink": "^0.0.13"
     },
     "require-dev": {
         "backpack/generators": "^1.2",
@@ -64,6 +65,6 @@
         "sort-packages": true,
         "optimize-autoloader": true
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }

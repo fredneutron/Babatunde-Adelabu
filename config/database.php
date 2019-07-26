@@ -78,6 +78,21 @@ return [
             'prefix' => '',
         ],
 
+        'wink' => [
+            'driver' => 'mysql',
+            'host' => env('WINK_DB_HOST', '127.0.0.1'),
+            'port' => env('WINK_DB_PORT', '3306'),
+            'database' => env('WINK_DB_DATABASE', 'blog'),
+            'username' => env('WINK_DB_USERNAME', 'root'),
+            'password' => env('WINK_DB_PASSWORD', ''),
+            'unix_socket' => env('WINK_DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+
     ],
 
     /*

@@ -23,4 +23,31 @@ class Helper
             'github' => Social::where(['user_id' => 1, 'name' => 'github'])->get(),
         ];
     }
+
+    public static function getNavigation ()
+    {
+        // return an array of navigation routes
+        return [
+            [
+                'name' => 'Home',
+                'url' =>  '/.'
+            ],
+            [
+                'name' => 'Projects',
+                'url' => '/Projects'
+            ],
+            [
+                'name' => 'Blog',
+                'url' => '/Blog'
+            ],
+            [
+                'name' => 'CV',
+                'url' => '/Resume'
+            ],
+            [
+                'name' => 'Contact',
+                'url' => '/Contact'
+            ]
+        ];
+    }
 }

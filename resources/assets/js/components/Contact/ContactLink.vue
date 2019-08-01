@@ -4,19 +4,19 @@
             <h2>Contact Info</h2>
             <div class="row">
                 <div class="col-1"><i class="icon ion-android-calendar icon"></i></div>
-                <div class="col-9"><span>{{ now(contact[0].date_of_birth) }}</span></div>
+                <div class="col-9"><span>{{ now(contact.date_of_birth) }}</span></div>
             </div>
             <div class="row">
                 <div class="col-1"><i class="icon ion-person icon"></i></div>
-                <div class="col-9"><span>{{ contact[0].first_name }} {{ contact[0].other_name }} {{ contact[0].last_name }}</span></div>
+                <div class="col-9"><span>{{ contact.first_name }} {{ contact.other_name }} {{ contact.last_name }}</span></div>
             </div>
             <div class="row">
                 <div class="col-1"><i class="icon ion-ios-telephone icon"></i></div>
-                <div class="col-9"><span>+{{ contact[0].phone_number }}</span></div>
+                <div class="col-9"><span>+{{ contact.phone_number }}</span></div>
             </div>
             <div class="row">
                 <div class="col-1"><i class="icon ion-at icon"></i></div>
-                <div class="col-9"><span>{{ contact[0].email }}</span></div>
+                <div class="col-9"><span>{{ contact.email }}</span></div>
             </div>
             <!--<div class="row">-->
                 <!--<div class="col-1"><i class="icon ion-pin icon"></i></div>-->
@@ -31,7 +31,7 @@
         name: "ContactLink",
         props: {
             contact: {
-                type: Array,
+                type: Object,
                 required: true
             }
         },

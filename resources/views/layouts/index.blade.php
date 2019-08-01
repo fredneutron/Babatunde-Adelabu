@@ -14,8 +14,11 @@
     <title>{{ config('app.name') }} :: @yield('title')</title>
 
     <!-- Scripts -->
-    <script src="{{ secure_asset('js/app.js') }}" defer></script>
-    <script src="{{ secure_asset('js/script.min.js') }}" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/script.min.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -23,44 +26,32 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
 
     <!-- icons -->
+    <script src="https://kit.fontawesome.com/9cb8c1e776.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="shortcut icon" href="{{ secure_asset('images/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
 
     <!-- Styles -->
-    <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    @yield('head')
 </head>
 <body>
 <?php
     use \App\Helpers\Helper;
-    $nav = [
-        [
-            'name' => 'Home',
-            'url' =>  '/.'
-        ],
-        [
-            'name' => 'Projects',
-            'url' => '/Projects'
-        ],
-        [
-            'name' => 'CV',
-            'url' => '/Resume'
-        ],
-        [
-            'name' => 'Contact',
-            'url' => '/Contact'
-        ]
-    ];
+    $nav = Helper::getNavigation();
+    $social = Helper::getSocial();
 ?>
 <div id="app">
-    <Navbar topic="{{ config('app.name') }}"
-            favicon="images/favicon.png"
-            :navigation='@json($nav)'>
-    </Navbar>
-
+    <nav-bar
+        active='@yield("title")'
+        topic="{{ config('app.name') }}"
+        favicon="{{ asset('images/favicon.png') }}"
+        :navigation='@json($nav)'
+    >
+    </nav-bar>
     @yield('content')
-
     <foot :nav='@json($nav)'
-          :social='@json(Helper::getSocial())'>
+          :social='@json($social)'>
     </foot>
 </div>
 </body>

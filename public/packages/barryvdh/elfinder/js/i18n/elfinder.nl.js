@@ -284,7 +284,7 @@
 			'webfm'           : 'Web bestandsmanager',
 			'ver'             : 'Versie',
 			'protocolver'     : 'protocol versie',
-			'homepage'        : 'Project home',
+			'homepage'        : 'Projects home',
 			'docs'            : 'Documentatie',
 			'github'          : 'Fork ons op Github',
 			'twitter'         : 'Volg ons op twitter',

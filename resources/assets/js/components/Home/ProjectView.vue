@@ -3,13 +3,16 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-12 col-lg-5 offset-lg-1 text">
-                    <h3>{{ projects.name }}</h3>
-                    <p v-html="projects.description"></p>
+                    <h3>{{ project.name }}</h3>
+                    <p v-html="project.description"></p>
                 </div>
                 <div class="col-md-12 col-lg-5">
                     <div class="portfolio-laptop-mockup">
                         <div class="screen">
-                            <div class="screen-content" v-bind:style="{backgroundImage : `url(${path+projects.image})`}"></div>
+                            <div
+                                    class="screen-content"
+                                    :style="{backgroundImage : `url(${imagePath+project.image})`}"
+                            ></div>
                         </div>
                         <div class="keyboard"></div>
                     </div>
@@ -21,14 +24,10 @@
 
 <script>
     export default {
-        name: "ProjectAd",
+        name: "ProjectView",
         props: {
-            projects: {
+            project: {
                 type: Object,
-                required: true
-            },
-            path: {
-                type: String,
                 required: true
             }
         }

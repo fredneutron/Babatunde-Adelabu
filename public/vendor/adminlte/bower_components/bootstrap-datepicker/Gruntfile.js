@@ -4,7 +4,7 @@ module.exports = function(grunt){
     // Force use of Unix newlines
     grunt.util.linefeed = '\n';
 
-    // Project configuration.
+    // Projects configuration.
     grunt.initConfig({
         //Metadata
         pkg: grunt.file.readJSON('package.json'),

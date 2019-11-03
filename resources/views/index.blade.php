@@ -3,12 +3,8 @@
 @section('title', 'Home')
 
 @section('content')
-    <?php
-        $n = random_int(0, count($projects)-1);
-        $project = $projects[$n];
-    ?>
     <main class="page lanidng-page">
-            
+
         <!-- Biography -->
         <!-- pass registered user's biography to bio -->
         <Bio :bio='@json($bio)'
@@ -37,7 +33,7 @@
         </s-skills>
 
         <!-- select all registered project in database and pass it to projects -->
-        <project-ad :projects='@json($project)'
+        <project-ad :projects='@json($projects[0])'
                     path="{{ $image_path }}">
         </project-ad>
 

@@ -69,7 +69,7 @@ class PortfolioController extends Controller
         $security = EpicSkills::where(['user_id' => $this->user[0]->id, 'type' => 'security'])->get();
 
         // select three random data from projects
-        $sort_project = $this->projectRandom($projects);
+        $sort_project = $projects->count() > 3 ? $projects->random(3)->all() : $projects;
 
 
         // return view with data needed for view
@@ -111,7 +111,7 @@ class PortfolioController extends Controller
 
         // return view with data needed for view
         return view('Projects', [
-            'projects' => $projects,
+            'projects' => $projects->random(),
             'image_path' => $this->image_path
         ]);
     }

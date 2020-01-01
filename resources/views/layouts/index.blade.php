@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <!-- Google site verification -->
     <meta name="google-site-verification" content="4MZL6YqXGNQEscwt0tpwg8yoVf0DCD6trOPZrG3U5mI" />
 

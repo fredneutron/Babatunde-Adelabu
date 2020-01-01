@@ -111,7 +111,7 @@ class PortfolioController extends Controller
 
         // return view with data needed for view
         return view('Projects', [
-            'projects' => $projects->random(),
+            'projects' => $projects,
             'image_path' => $this->image_path
         ]);
     }

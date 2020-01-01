@@ -1,6 +1,10 @@
 <template>
     <div class="row">
-        <div class="col-md-6 col-lg-4" v-for="project in projects">
+        <div
+            class="col-md-6 col-lg-4"
+            v-for="(project, index) in projects"
+            :key="index"
+        >
             <div class="card border-0">
                 <a v-bind:href="project.url">
                     <img v-bind:src="path+project.image" alt="Card Image" class="card-img-top scale-on-hover">

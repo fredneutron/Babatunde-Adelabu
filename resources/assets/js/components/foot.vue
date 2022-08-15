@@ -6,7 +6,7 @@
             </div>
             <div class="social-icons">
                 <a v-if="typeof social['linked-in'][0] !== 'undefined'" v-bind:href="social['linked-in'][0].url"><i class="icon ion-social-linkedin"></i></a>
-                <a v-if="social['facebook'][0] !== 'undefined'" v-bind:href="social.facebook[0].url"><i class="icon ion-social-facebook"></i></a>
+                <a v-if="typeof social['facebook'][0] !== 'undefined'" v-bind:href="social.facebook[0].url"><i class="icon ion-social-facebook"></i></a>
                 <a v-if="typeof social['twitter'][0] !== 'undefined'" v-bind:href="social.twitter[0].url"><i class="icon ion-social-twitter"></i></a>
                 <a v-if="typeof social['github'][0] !== 'undefined'" v-bind:href="social.github[0].url"><i class="icon ion-social-github"></i></a>
                 <a v-if="typeof social['instagram'][0] !== 'undefined'" v-bind:href="social.instagram[0].url"><i class="icon ion-social-instagram"></i></a>
